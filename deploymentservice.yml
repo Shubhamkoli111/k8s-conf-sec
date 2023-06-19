@@ -19,6 +19,21 @@ spec:
         image: thetips4you/nodeapp:latest
         ports:
         - containerPort: 3000
+        env:
+        - name: MYENV         # env name in which value of the key is stored
+          valueFrom:
+           configMapKeyRef:
+            name: mymap11      # name of the config created
+            key: config11.conf
+        volumeMounts:
+         - name: testsecret
+           mountPath: "/tmp/my-secret-sk"   # the secret files will be mounted as ReadOnly by default here
+      volumes:
+      - name: testsecret
+        secret:
+         secretName: secret-sk11
+        
+        
         
         
 ---
