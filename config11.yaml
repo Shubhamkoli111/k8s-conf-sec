@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myapp-configmap
+data:
+  config-key: This_is_my_conf
+
